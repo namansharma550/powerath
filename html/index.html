@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Laravel: <meta name="csrf-token" content="{{ csrf_token() }}"> -->
+  <meta name="csrf-token" content="">
+  <title>AXIOM® Sports Nutrition | Clinical Protein, Creatine &amp; Strength Equipment</title>
+  <meta name="description" content="Earn Every Rep. Third-party ISO-17025 batch-tested whey protein isolate, German Creapure® creatine monohydrate, clinical pre-workout formulations, and competition-spec strength equipment.">
+  <meta name="keywords" content="sports nutrition, whey protein isolate, creatine monohydrate, clinical pre-workout, electrolyte recovery, powerlifting lever belt, gym accessories, third-party tested supplements">
+  <meta property="og:title" content="AXIOM® Sports Nutrition — Earn Every Rep.">
+  <meta property="og:description" content="Formulated for discipline. Open-label sports supplements and competition-grade training gear.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Tailwind v4 browser build (dev/prototype). In Laravel use Vite + @tailwindcss/vite and drop this tag. -->
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.1.17"></script>
+
+  <!-- Backend settings. Laravel: set useMock to false; apiBase is where the JSON routes live. -->
+  <script>
+    window.AXIOM_CONFIG = { apiBase: "/api", useMock: true };
+  </script>
+</head>
+<body class="bg-[#F4F3F0] text-[#101010] antialiased selection:bg-[#E3262E] selection:text-white">
+
+  <!-- SVG icon sprite -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.8 3.6-6.5 8-6.5s8 2.7 8 6.5"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M5 7h14l1 13H4L5 7z"/><path d="M8.5 7V5.5a3.5 3.5 0 017 0V7"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M3 6h18M3 12h18M3 18h18"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+    <symbol id="i-star" viewBox="0 0 20 20" stroke="currentColor" stroke-width="1.5"><path d="M10 1.6l2.47 5.01 5.53.8-4 3.9.94 5.5L10 14.21 5.06 16.81l.94-5.5-4-3.9 5.53-.8L10 1.6z"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square"><path d="M7 17L17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"><path d="M5 13l4 4L19 7"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M12 3l8 3.5v5.5c0 5-3.4 8.3-8 9.8-4.6-1.5-8-4.8-8-9.8V6.5L12 3z"/><path d="M9 12l2 2 4-4"/></symbol>
+    <symbol id="i-lab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M9 3h6M10 3v5.5L4.8 18.2A1.5 1.5 0 006.1 20.5h11.8a1.5 1.5 0 001.3-2.3L14 8.5V3"/><path d="M7.2 14h9.6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><rect x="5" y="11" width="14" height="10"/><path d="M8 11V7a4 4 0 018 0v4"/></symbol>
+    <symbol id="i-support" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M4 13v-1a8 8 0 0116 0v1"/><rect x="3" y="13" width="3.5" height="6"/><rect x="17.5" y="13" width="3.5" height="6"/><path d="M19 19v1.5H13"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M2 6h12v10H2zM14 9h4l4 4v3h-8V9z"/><circle cx="6.5" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="square"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/></symbol>
+  </svg>
+
+  <div class="min-h-screen flex flex-col bg-[#F4F3F0] text-[#101010]">
+
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[#E3262E] focus:text-white focus:px-4 focus:py-2 focus:font-bold">Skip to main content</a>
+
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div role="region" aria-label="Store announcements" class="bg-[#101010] text-white border-b border-[#252525] text-[11px] font-mono-spec uppercase tracking-wider">
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 text-center sm:text-left">
+          <span class="inline-block w-2 h-2 bg-[#E3262E]"></span>
+          <span>COMPLIMENTARY 2-DAY EXPRESS SHIPPING ON ORDERS OVER <strong class="text-white">$75.00</strong></span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="hidden md:inline text-neutral-300">SPRING STRENGTH CYCLE: 15% OFF WITH <strong class="text-white">EARN15</strong></span>
+          <button type="button" id="promo-toggle" data-action="apply-earn15" class="px-2.5 py-0.5 text-[10px] font-bold tracking-widest border transition-colors cursor-pointer bg-[#E3262E] text-white border-[#E3262E] hover:bg-white hover:text-[#101010]">APPLY 15% CODE</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. NAVIGATION -->
+    <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-[#101010]">
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-18 flex items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <button type="button" id="mobile-menu-btn" data-action="toggle-mobile-menu" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-navigation" class="lg:hidden p-2 -ml-2 text-[#101010] hover:text-[#E3262E] cursor-pointer">
+            <svg class="w-6 h-6 menu-open-icon" aria-hidden="true"><use href="#i-menu"/></svg>
+            <svg class="w-6 h-6 menu-close-icon hidden" aria-hidden="true"><use href="#i-close"/></svg>
+          </button>
+
+          <a href="#top" data-action="home" class="flex items-center gap-2 group" aria-label="AXIOM Sports Nutrition Home">
+            <span class="w-3.5 h-7 bg-[#E3262E] inline-block -skew-x-12 group-hover:bg-[#101010] transition-colors"></span>
+            <div class="leading-none">
+              <span class="font-display text-3xl font-extrabold uppercase tracking-tight text-[#101010]">AXIOM<sup class="text-xs font-sans font-bold ml-0.5">®</sup></span>
+              <span class="hidden sm:block text-[9px] font-mono-spec uppercase tracking-[0.22em] text-neutral-500 -mt-0.5">SPORTS NUTRITION</span>
+            </div>
+          </a>
+        </div>
+
+        <nav aria-label="Primary navigation" class="hidden lg:flex items-center gap-7">
+          <button type="button" data-action="shop" data-category="ALL" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors cursor-pointer">Shop</button>
+          <button type="button" data-action="shop" data-category="Whey Protein" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors cursor-pointer">Protein</button>
+          <button type="button" data-action="shop" data-category="Creatine" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors cursor-pointer">Performance</button>
+          <button type="button" data-action="shop" data-category="Pre-workout" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors cursor-pointer">Pre-workout</button>
+          <button type="button" data-action="shop" data-category="Gym Accessories" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors cursor-pointer">Accessories</button>
+          <a href="#why-choose-us" class="font-display text-lg font-bold uppercase tracking-wider text-[#101010] hover:text-[#E3262E] transition-colors">About</a>
+        </nav>
+
+        <div class="flex items-center gap-1 sm:gap-2">
+          <button type="button" data-action="open-search" aria-label="Search products" class="flex items-center gap-1.5 px-3 py-2 text-xs font-mono-spec font-semibold uppercase tracking-wider hover:bg-[#F4F3F0] transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true"><use href="#i-search"/></svg>
+            <span class="hidden xl:inline">Search</span>
+          </button>
+          <button type="button" data-action="open-account" aria-label="Account and order lookup" class="flex items-center gap-1.5 px-3 py-2 text-xs font-mono-spec font-semibold uppercase tracking-wider hover:bg-[#F4F3F0] transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true"><use href="#i-user"/></svg>
+            <span class="hidden xl:inline">Account</span>
+          </button>
+          <button type="button" id="cart-btn" data-action="open-cart" aria-label="Shopping cart with 0 items" class="flex items-center gap-2 px-3.5 py-2 bg-[#101010] text-white hover:bg-[#E3262E] transition-colors cursor-pointer">
+            <svg class="w-4 h-4" aria-hidden="true"><use href="#i-bag"/></svg>
+            <span class="hidden sm:inline font-display text-base font-bold uppercase tracking-wider">Cart</span>
+            <span id="cart-count" class="min-w-5 h-5 px-1.5 bg-[#E3262E] text-white font-mono-spec text-[11px] font-bold flex items-center justify-center">0</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile drawer navigation -->
+      <nav id="mobile-navigation" aria-label="Mobile navigation" class="hidden lg:hidden bg-[#101010] text-white border-t border-[#252525] px-6 py-5 space-y-3">
+        <button type="button" data-action="shop" data-category="ALL" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Shop All Formulations</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <button type="button" data-action="shop" data-category="Whey Protein" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Protein Isolates</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <button type="button" data-action="shop" data-category="Creatine" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Performance &amp; Creatine</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <button type="button" data-action="shop" data-category="Pre-workout" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Clinical Pre-workout</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <button type="button" data-action="shop" data-category="Recovery" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Recovery &amp; Electrolytes</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <button type="button" data-action="shop" data-category="Gym Accessories" class="w-full flex items-center justify-between py-2 border-b border-[#252525] font-display text-2xl font-bold uppercase tracking-wide text-left hover:text-[#E3262E] cursor-pointer"><span>Gym Accessories &amp; Belts</span><svg class="w-4 h-4 text-[#E3262E]" aria-hidden="true"><use href="#i-arrow-up-right"/></svg></button>
+        <div class="pt-2 flex items-center justify-between text-xs font-mono-spec uppercase text-neutral-400">
+          <a href="#why-choose-us" data-action="close-mobile-menu" class="hover:text-white">About AXIOM®</a>
+          <a href="#guides" data-action="close-mobile-menu" class="hover:text-white">Dosing Guides</a>
+          <button type="button" data-action="open-account" class="hover:text-white uppercase cursor-pointer">Track Order</button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="flex-1">
+
+      <!-- 3. HERO -->
+      <section aria-labelledby="hero-headline" class="relative bg-[#101010] text-white border-b border-[#252525] overflow-hidden">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 min-h-[620px] lg:min-h-[700px]">
+          <div class="lg:col-span-6 px-4 sm:px-6 lg:px-10 py-14 sm:py-20 lg:py-24 flex flex-col justify-between z-10 border-b lg:border-b-0 lg:border-r border-[#252525]">
+            <div>
+              <div class="inline-flex items-center gap-2.5 bg-[#1B1B1B] border border-[#2E2E2E] px-3 py-1.5 mb-7">
+                <span class="w-2 h-2 bg-[#E3262E]"></span>
+                <span class="text-[11px] font-mono-spec uppercase tracking-[0.2em] text-neutral-300">ISO/IEC 17025 ASSAYED // ZERO PROPRIETARY BLENDS</span>
+              </div>
+
+              <h1 id="hero-headline" class="font-display text-6xl sm:text-7xl xl:text-[94px] font-extrabold uppercase leading-[0.89] tracking-tight text-white">
+                EARN EVERY <span class="text-[#E3262E] inline-block">REP.</span>
+              </h1>
+
+              <p class="mt-6 text-base sm:text-lg text-neutral-300 max-w-xl leading-relaxed">
+                Clinical-grade sports nutrition and competition-spec strength equipment engineered for athletes who measure progress in kilograms, velocity, and verified milligram disclosure.
+              </p>
+
+              <div class="mt-9 flex flex-col sm:flex-row gap-3.5">
+                <button type="button" data-action="shop" data-category="ALL" class="h-14 px-9 bg-[#E3262E] text-white font-display text-xl font-bold uppercase tracking-wider hover:bg-white hover:text-[#101010] transition-colors flex items-center justify-center gap-2.5 cursor-pointer">
+                  <span>SHOP NOW</span>
+                  <svg class="w-4 h-4" aria-hidden="true"><use href="#i-arrow-up-right"/></svg>
+                </button>
+                <a href="#categories" class="h-14 px-9 border border-white/40 text-white font-display text-xl font-bold uppercase tracking-wider hover:border-white hover:bg-white/10 transition-colors flex items-center justify-center">EXPLORE COLLECTION</a>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-3 gap-4 pt-10 mt-12 border-t border-[#252525]">
+              <div>
+                <p class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-none">100%</p>
+                <p class="text-[11px] font-mono-spec uppercase tracking-wider text-neutral-400 mt-1">OPEN-LABEL DOSING</p>
+              </div>
+              <div class="border-l border-[#252525] pl-4">
+                <p class="font-display text-3xl sm:text-4xl font-extrabold text-[#E3262E] leading-none">28.0G</p>
+                <p class="text-[11px] font-mono-spec uppercase tracking-wider text-neutral-400 mt-1">COLD-FILTERED ISOLATE</p>
+              </div>
+              <div class="border-l border-[#252525] pl-4">
+                <p class="font-display text-3xl sm:text-4xl font-extrabold text-white leading-none">0.0G</p>
+                <p class="text-[11px] font-mono-spec uppercase tracking-wider text-neutral-400 mt-1">AMINO SPIKING / DYES</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 relative min-h-[380px] sm:min-h-[480px] bg-[#0a0a0a]">
+            <img src="images/hero-athlete.jpg" alt="Strength athlete chalking hands over a heavy barbell in an industrial gym" fetchpriority="high" class="w-full h-full object-cover object-center">
+            <div class="absolute top-0 left-0 w-1.5 h-28 bg-[#E3262E]"></div>
+            <div class="absolute bottom-5 left-5 right-5 sm:left-auto sm:right-6 sm:max-w-xs bg-[#101010]/95 border border-[#2E2E2E] p-4">
+              <div class="flex items-center justify-between text-[10px] font-mono-spec uppercase tracking-widest text-[#E3262E] mb-1">
+                <span>FEATURED FORMULATION</span>
+                <span>LOT #AX-2604A</span>
+              </div>
+              <p class="font-display text-xl font-bold uppercase text-white leading-tight">ISO-PURE 100% WHEY ISOLATE + CREAPURE® 5000</p>
+              <button type="button" data-action="add-stack" class="mt-2.5 text-xs font-mono-spec uppercase tracking-wider text-white underline hover:text-[#E3262E] cursor-pointer">+ Add Core Stack (15% Off) →</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. TRUST INDICATORS -->
+      <section aria-label="Verified quality and service standards" class="bg-white border-b border-[#101010]">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-[#DCDAD4]">
+          <div class="p-5 sm:p-6 flex items-start gap-3.5">
+            <div class="w-10 h-10 bg-[#F4F3F0] border border-[#DCDAD4] flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-[#E3262E]" aria-hidden="true"><use href="#i-lab"/></svg></div>
+            <div>
+              <h2 class="font-display text-lg font-extrabold uppercase tracking-wide text-[#101010]">Quality Assurance</h2>
+              <p class="text-xs text-neutral-600 leading-relaxed mt-0.5">Every production lot assayed in ISO/IEC 17025 accredited laboratories.</p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 flex items-start gap-3.5">
+            <div class="w-10 h-10 bg-[#F4F3F0] border border-[#DCDAD4] flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-[#E3262E]" aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <div>
+              <h2 class="font-display text-lg font-extrabold uppercase tracking-wide text-[#101010]">Authentic Products</h2>
+              <p class="text-xs text-neutral-600 leading-relaxed mt-0.5">Direct sealed supply chain with verifiable container batch codes.</p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 flex items-start gap-3.5">
+            <div class="w-10 h-10 bg-[#F4F3F0] border border-[#DCDAD4] flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-[#E3262E]" aria-hidden="true"><use href="#i-lock"/></svg></div>
+            <div>
+              <h2 class="font-display text-lg font-extrabold uppercase tracking-wide text-[#101010]">Secure Payments</h2>
+              <p class="text-xs text-neutral-600 leading-relaxed mt-0.5">256-bit TLS encrypted checkout via PCI-DSS Level 1 gateways.</p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 flex items-start gap-3.5">
+            <div class="w-10 h-10 bg-[#F4F3F0] border border-[#DCDAD4] flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-[#E3262E]" aria-hidden="true"><use href="#i-support"/></svg></div>
+            <div>
+              <h2 class="font-display text-lg font-extrabold uppercase tracking-wide text-[#101010]">Customer Support</h2>
+              <p class="text-xs text-neutral-600 leading-relaxed mt-0.5">Certified sports nutrition advisors available Monday–Saturday.</p>
+            </div>
+          </div>
+          <div class="p-5 sm:p-6 flex items-start gap-3.5">
+            <div class="w-10 h-10 bg-[#F4F3F0] border border-[#DCDAD4] flex items-center justify-center shrink-0"><svg class="w-5 h-5 text-[#E3262E]" aria-hidden="true"><use href="#i-truck"/></svg></div>
+            <div>
+              <h2 class="font-display text-lg font-extrabold uppercase tracking-wide text-[#101010]">Fast Shipping</h2>
+              <p class="text-xs text-neutral-600 leading-relaxed mt-0.5">Same-day warehouse dispatch on orders placed before 2:00 PM EST.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. SHOP BY CATEGORY -->
+      <section id="categories" aria-labelledby="categories-heading" class="py-16 sm:py-22 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#101010]">
+          <div>
+            <span class="text-xs font-mono-spec font-semibold uppercase tracking-[0.2em] text-[#E3262E]">SYSTEM ARCHITECTURE // 06 DISCIPLINES</span>
+            <h2 id="categories-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-none mt-1.5">SHOP BY CATEGORY</h2>
+          </div>
+          <p class="text-sm text-neutral-600 max-w-md">Select a targeted nutritional system or competition hardware tier to filter verified formulations below.</p>
+        </div>
+        <!-- rendered by js/app.js: renderCategoryTiles() -->
+        <div id="category-grid" class="mt-8 grid grid-cols-1 md:grid-cols-6 lg:grid-cols-12 gap-4"></div>
+      </section>
+
+      <!-- 6. BESTSELLING PRODUCTS -->
+      <section id="bestsellers" aria-labelledby="bestsellers-heading" class="bg-white border-y border-[#101010] py-16 sm:py-22">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-6 border-b border-[#DCDAD4]">
+            <div>
+              <span class="text-xs font-mono-spec font-semibold uppercase tracking-[0.2em] text-[#E3262E]">HIGH-OUTPUT FORMULATIONS &amp; HARDWARE</span>
+              <h2 id="bestsellers-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-none mt-1.5">BESTSELLING PRODUCTS</h2>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3">
+              <div id="brand-chip"></div>
+              <label class="flex items-center gap-2 text-xs font-mono-spec uppercase text-neutral-600">
+                <span>SORT:</span>
+                <select id="sort-select" aria-label="Sort products" class="h-10 px-3 bg-[#F4F3F0] border border-[#101010] text-xs font-mono-spec font-semibold text-[#101010] uppercase cursor-pointer">
+                  <option value="featured">Featured Bestsellers</option>
+                  <option value="rating">Highest Rated</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div id="category-tabs" role="tablist" aria-label="Filter products by category" class="flex items-center gap-2 overflow-x-auto py-5 border-b border-[#DCDAD4]"></div>
+
+          <div id="product-grid"></div>
+        </div>
+      </section>
+
+      <!-- 7. PROMOTIONAL CAMPAIGN BANNER -->
+      <section aria-labelledby="promo-campaign-heading" class="bg-[#101010] text-white border-b border-[#252525]">
+        <div class="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12">
+          <div class="lg:col-span-7 relative min-h-[340px] sm:min-h-[460px] border-b lg:border-b-0 lg:border-r border-[#252525] overflow-hidden">
+            <img src="images/campaign-banner.jpg" alt="Hybrid strength athlete driving a heavy weighted training sled under dramatic studio lighting" loading="lazy" class="w-full h-full object-cover">
+            <div class="absolute top-5 left-5 bg-[#E3262E] text-white px-3 py-1 text-[11px] font-mono-spec font-bold uppercase tracking-widest">LIMITED CYCLE CAMPAIGN // EARN15</div>
+          </div>
+
+          <div class="lg:col-span-5 p-8 sm:p-12 lg:p-14 flex flex-col justify-center">
+            <span class="text-xs font-mono-spec uppercase tracking-[0.2em] text-[#E3262E]">FOUNDATIONAL HYPERTROPHY &amp; OUTPUT PROTOCOL</span>
+            <h2 id="promo-campaign-heading" class="font-display text-4xl sm:text-5xl xl:text-6xl font-extrabold uppercase leading-[0.92] mt-2">BUILT UNDER HEAVY IRON. ZERO COMPROMISE.</h2>
+            <p class="text-sm sm:text-base text-neutral-300 mt-5 leading-relaxed">
+              Pair cold-filtered ISO-PURE Whey Isolate (28g native protein) with 99.99% pure German Creapure® Monohydrate. Deploy code <strong class="text-white font-mono-spec">EARN15</strong> for 15% off your training stack plus complimentary 2-day express fulfillment.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-3">
+              <button type="button" data-action="add-stack" class="h-13 px-6 bg-[#E3262E] text-white font-display text-lg font-bold uppercase tracking-wider hover:bg-white hover:text-[#101010] transition-colors cursor-pointer">ADD CORE STACK + 15% OFF</button>
+              <button type="button" data-action="build-custom-stack" class="h-13 px-6 border border-white/35 text-white font-display text-lg font-bold uppercase tracking-wider hover:border-white transition-colors cursor-pointer">BUILD CUSTOM STACK</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 8. WHY CHOOSE US -->
+      <section id="why-choose-us" aria-labelledby="why-choose-heading" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          <div class="lg:col-span-5 bg-[#101010] text-white p-8 sm:p-10 border-l-4 border-[#E3262E]">
+            <span class="text-xs font-mono-spec uppercase tracking-[0.2em] text-[#E3262E]">THE AXIOM® STANDARD</span>
+            <h2 id="why-choose-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-[0.94] mt-2">WHY SERIOUS ATHLETES CHOOSE AXIOM.</h2>
+            <p class="text-sm text-neutral-300 leading-relaxed mt-5">
+              The commercial supplement industry thrives on proprietary blends, under-dosed pixie dusting, and inflated protein nitrogen tests. We built AXIOM® as an antidote: clinical sports nutrition formulated strictly to peer-reviewed ergogenic benchmarks.
+            </p>
+            <div class="mt-8 pt-6 border-t border-[#252525] grid grid-cols-2 gap-4">
+              <div>
+                <span class="font-display text-3xl font-extrabold text-white">ISO-17025</span>
+                <p class="text-[11px] font-mono-spec text-neutral-400 uppercase mt-0.5">INDEPENDENT LAB ASSAY</p>
+              </div>
+              <div>
+                <span class="font-display text-3xl font-extrabold text-[#E3262E]">cGMP</span>
+                <p class="text-[11px] font-mono-spec text-neutral-400 uppercase mt-0.5">FDA-REGISTERED FACILITY</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div class="bg-white border border-[#101010] p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#DCDAD4]"><span class="font-mono-spec text-xs font-bold text-[#E3262E]">PILLAR // 01</span><span class="w-2 h-2 bg-[#101010]"></span></div>
+                <h3 class="font-display text-2xl font-extrabold uppercase leading-tight text-[#101010]">Guaranteed Product Authenticity</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed mt-2.5">Every container ships directly from climate-controlled fulfillment vaults with induction tamper seals and traceable batch numbers—eliminating third-party marketplace counterfeits.</p>
+              </div>
+            </div>
+            <div class="bg-white border border-[#101010] p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#DCDAD4]"><span class="font-mono-spec text-xs font-bold text-[#E3262E]">PILLAR // 02</span><span class="w-2 h-2 bg-[#101010]"></span></div>
+                <h3 class="font-display text-2xl font-extrabold uppercase leading-tight text-[#101010]">100% Transparent Ingredients</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed mt-2.5">Zero proprietary matrices. Every active amino acid, electrolyte mineral, and botanical extract is listed to the exact milligram alongside its chemical chelate or raw source.</p>
+              </div>
+            </div>
+            <div class="bg-white border border-[#101010] p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#DCDAD4]"><span class="font-mono-spec text-xs font-bold text-[#E3262E]">PILLAR // 03</span><span class="w-2 h-2 bg-[#101010]"></span></div>
+                <h3 class="font-display text-2xl font-extrabold uppercase leading-tight text-[#101010]">Clinical Quality Standards</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed mt-2.5">Manufactured in cGMP-compliant facilities and independently screened for heavy metals, microbial purity, label potency accuracy, and prohibited athletic stimulants.</p>
+              </div>
+            </div>
+            <div class="bg-white border border-[#101010] p-6 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between pb-3 mb-4 border-b border-[#DCDAD4]"><span class="font-mono-spec text-xs font-bold text-[#E3262E]">PILLAR // 04</span><span class="w-2 h-2 bg-[#101010]"></span></div>
+                <h3 class="font-display text-2xl font-extrabold uppercase leading-tight text-[#101010]">Dedicated Athlete Support</h3>
+                <p class="text-xs sm:text-sm text-neutral-600 leading-relaxed mt-2.5">Staffed by CSCS-credentialed strength coaches and sports nutrition specialists—never scripted bots—backed by our 30-day return and first-scoop flavor guarantee.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 9. FEATURED BRANDS STRIP -->
+      <section aria-labelledby="featured-brands-heading" class="bg-white border-y border-[#101010]">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-10">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
+            <h2 id="featured-brands-heading" class="text-xs font-mono-spec font-bold uppercase tracking-[0.2em] text-neutral-500">AUTHORIZED FORMULATION &amp; EQUIPMENT PARTNERS (CLICK TO FILTER)</h2>
+            <span class="text-[11px] font-mono-spec uppercase text-[#E3262E]">100% DIRECT AUTHORIZED STOCK</span>
+          </div>
+          <div id="brand-strip" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 border border-[#DCDAD4] divide-x divide-y lg:divide-y-0 divide-[#DCDAD4]"></div>
+        </div>
+      </section>
+
+      <!-- 10. EDUCATIONAL CONTENT -->
+      <section id="guides" aria-labelledby="education-heading" class="py-16 sm:py-22 px-4 sm:px-6 lg:px-8 max-w-[1400px] mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 border-b border-[#101010]">
+          <div>
+            <span class="text-xs font-mono-spec font-semibold uppercase tracking-[0.2em] text-[#E3262E]">EVIDENCE-BASED NUTRITION &amp; TRAINING BRIEFINGS</span>
+            <h2 id="education-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-none mt-1.5">PERFORMANCE EDUCATION &amp; GUIDES</h2>
+          </div>
+          <p class="text-sm text-neutral-600 max-w-md">Peer-reviewed protocols on protein kinetics, daily creatine saturation, ergogenic pre-workout timing, and cellular hydration.</p>
+        </div>
+        <div id="guides-grid" class="mt-8 grid grid-cols-1 lg:grid-cols-12 gap-6"></div>
+      </section>
+
+      <!-- 11. CUSTOMER REVIEWS -->
+      <section aria-labelledby="reviews-heading" class="bg-white border-t border-[#101010] py-16 sm:py-22">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-8 border-b border-[#DCDAD4]">
+            <div>
+              <div class="flex items-center gap-2 text-xs font-mono-spec uppercase tracking-widest text-[#E3262E]">
+                <span class="flex">
+                  <svg class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><use href="#i-star"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><use href="#i-star"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><use href="#i-star"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><use href="#i-star"/></svg>
+                  <svg class="w-3.5 h-3.5" fill="currentColor" aria-hidden="true"><use href="#i-star"/></svg>
+                </span>
+                <span>4.9 / 5.0 VERIFIED ATHLETE RATING</span>
+              </div>
+              <h2 id="reviews-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-none mt-2">FIELD-TESTED BY ATHLETES &amp; COACHES</h2>
+            </div>
+            <button type="button" data-action="open-review" class="px-6 py-3 bg-[#101010] text-white font-display text-base font-bold uppercase tracking-wider hover:bg-[#E3262E] transition-colors self-start sm:self-auto cursor-pointer">+ WRITE A REVIEW</button>
+          </div>
+          <div id="reviews-grid" class="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"></div>
+        </div>
+      </section>
+
+      <!-- 12. NEWSLETTER -->
+      <section aria-labelledby="newsletter-heading" class="bg-[#101010] text-white border-t-4 border-[#E3262E]">
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6">
+            <span class="text-xs font-mono-spec uppercase tracking-[0.2em] text-[#E3262E]">WEEKLY DOSING NOTES &amp; EARLY LOT RELEASES</span>
+            <h2 id="newsletter-heading" class="font-display text-4xl sm:text-5xl font-extrabold uppercase leading-[0.94] mt-2">JOIN THE AXIOM TRAINING BRIEFING. UNLOCK 15% OFF.</h2>
+            <p class="text-sm text-neutral-300 mt-3 max-w-xl leading-relaxed">Receive evidence-based programming articles, new ISO-17025 lab batch drops, and an immediate 15% welcome code—zero spam.</p>
+          </div>
+
+          <div class="lg:col-span-6">
+            <form id="newsletter-form" class="bg-[#181818] border border-[#2D2D2D] p-6 space-y-4" novalidate>
+              <div class="grid grid-cols-1 sm:grid-cols-12 gap-3">
+                <div class="sm:col-span-5">
+                  <label for="newsletter-focus" class="block text-[10px] font-mono-spec uppercase tracking-widest text-neutral-400 mb-1.5">PRIMARY FOCUS</label>
+                  <select id="newsletter-focus" name="trainingFocus" class="w-full h-12 px-3 bg-[#101010] border border-[#383838] text-xs font-mono-spec uppercase text-white">
+                    <option value="Strength &amp; Powerlifting">Strength &amp; Powerlifting</option>
+                    <option value="Hypertrophy &amp; Physique">Hypertrophy &amp; Physique</option>
+                    <option value="Hybrid &amp; Endurance">Hybrid &amp; Endurance</option>
+                    <option value="Recovery &amp; Longevity">Recovery &amp; Longevity</option>
+                  </select>
+                </div>
+                <div class="sm:col-span-7">
+                  <label for="newsletter-email" class="block text-[10px] font-mono-spec uppercase tracking-widest text-neutral-400 mb-1.5">EMAIL ADDRESS</label>
+                  <input id="newsletter-email" name="email" type="email" required placeholder="athlete@domain.com" class="w-full h-12 px-4 bg-[#101010] border border-[#383838] text-sm text-white placeholder-neutral-500">
+                </div>
+              </div>
+              <button type="submit" id="newsletter-submit" class="w-full h-12 bg-[#E3262E] text-white font-display text-lg font-bold uppercase tracking-wider hover:bg-white hover:text-[#101010] transition-colors cursor-pointer">UNLOCK 15% OFF &amp; SUBSCRIBE</button>
+              <p id="newsletter-status" class="text-xs font-mono-spec" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 13. FOOTER -->
+    <footer class="bg-[#0B0B0B] text-neutral-300 border-t border-[#252525]">
+      <div class="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-[#222222]">
+          <div class="lg:col-span-4 space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="w-3 h-6 bg-[#E3262E] inline-block -skew-x-12"></span>
+              <span class="font-display text-3xl font-extrabold uppercase tracking-tight text-white">AXIOM<sup class="text-xs font-sans font-bold">®</sup></span>
+            </div>
+            <p class="text-xs text-neutral-400 leading-relaxed max-w-sm">Clinical sports nutrition and IPF-specification strength hardware. Formulated with open-label milligram precision and third-party ISO/IEC 17025 batch verification.</p>
+            <div class="pt-2 space-y-1 text-xs font-mono-spec text-neutral-400">
+              <p class="text-white font-semibold">HEADQUARTERS &amp; FULFILLMENT</p>
+              <p>420 Industrial Foundry Way, Suite 200, Austin, TX 78702</p>
+              <p>Athlete Desk: +1 (800) 555-0194 (Mon–Sat, 8am–6pm EST)</p>
+              <p>Email: support@axiomnutrition.com</p>
+            </div>
+            <div class="pt-2 flex items-center gap-2">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" aria-label="Instagram" class="px-3 py-1.5 bg-[#161616] border border-[#2A2A2A] hover:border-[#E3262E] hover:text-white text-[11px] font-mono-spec font-bold uppercase transition-colors">IG</a>
+              <a href="https://youtube.com" target="_blank" rel="noreferrer" aria-label="YouTube" class="px-3 py-1.5 bg-[#161616] border border-[#2A2A2A] hover:border-[#E3262E] hover:text-white text-[11px] font-mono-spec font-bold uppercase transition-colors">YT</a>
+              <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="X / Twitter" class="px-3 py-1.5 bg-[#161616] border border-[#2A2A2A] hover:border-[#E3262E] hover:text-white text-[11px] font-mono-spec font-bold uppercase transition-colors">X</a>
+              <a href="https://strava.com" target="_blank" rel="noreferrer" aria-label="Strava Club" class="px-3 py-1.5 bg-[#161616] border border-[#2A2A2A] hover:border-[#E3262E] hover:text-white text-[11px] font-mono-spec font-bold uppercase transition-colors">STV</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-3">
+            <h3 class="font-display text-lg font-extrabold uppercase tracking-wider text-white mb-4">Product Categories</h3>
+            <ul id="footer-categories" class="space-y-2.5 text-xs"></ul>
+          </div>
+
+          <div class="lg:col-span-2">
+            <h3 class="font-display text-lg font-extrabold uppercase tracking-wider text-white mb-4">Customer Support</h3>
+            <ul class="space-y-2.5 text-xs">
+              <li><button type="button" data-action="open-account" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Order Dispatch Lookup</button></li>
+              <li><a href="#guides" class="text-neutral-400 hover:text-white transition-colors">Dosing &amp; Nutrition Guides</a></li>
+              <li><button type="button" data-action="open-review" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Submit Athlete Review</button></li>
+              <li><a href="mailto:support@axiomnutrition.com" class="text-neutral-400 hover:text-white transition-colors">Team &amp; Collegiate Supply</a></li>
+            </ul>
+          </div>
+
+          <div class="lg:col-span-3">
+            <h3 class="font-display text-lg font-extrabold uppercase tracking-wider text-white mb-4">Policies &amp; Compliance</h3>
+            <ul class="space-y-2.5 text-xs">
+              <li><button type="button" data-action="open-policy" data-policy="shipping" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Shipping Policy</button></li>
+              <li><button type="button" data-action="open-policy" data-policy="returns" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Return Policy (30-Day Guarantee)</button></li>
+              <li><button type="button" data-action="open-policy" data-policy="privacy" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Privacy Policy</button></li>
+              <li><button type="button" data-action="open-policy" data-policy="terms" class="text-neutral-400 hover:text-white transition-colors cursor-pointer">Terms and Conditions</button></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 bg-[#131313] border border-[#262626] p-5 text-[11px] text-neutral-400 leading-relaxed space-y-2">
+          <p class="font-mono-spec uppercase text-neutral-300 font-semibold">REGULATORY &amp; DIETARY SUPPLEMENT DISCLAIMER</p>
+          <p>
+            *These statements have not been evaluated by the Food and Drug Administration. Nutritional products sold on this website are lawful dietary supplements regulated under DSHEA and are not intended to diagnose, treat, cure, or prevent any disease. Always consult a qualified physician or sports medicine professional before starting any supplement, nutrition protocol, or high-load training program. AXIOM® strictly sells lawful sports nutrition and permitted athletic training equipment; no anabolic steroids, prescription-only substances, or controlled performance-enhancing drugs are offered or distributed.
+          </p>
+        </div>
+
+        <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] font-mono-spec text-neutral-500">
+          <p>© <span id="year">2026</span> AXIOM® SPORTS NUTRITION LLC. ALL RIGHTS RESERVED.</p>
+          <p>TLS 1.3 ENCRYPTED CHECKOUT · VISA · MASTERCARD · AMEX</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modals / drawers are rendered here by js/app.js -->
+  <div id="modal-root"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/mock-api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

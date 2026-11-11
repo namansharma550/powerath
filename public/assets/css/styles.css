@@ -1,0 +1,101 @@
+/*
+ * AXIOM storefront styles.
+ * Utility classes come from Tailwind (see the <script> in index.html).
+ * In Laravel, compile Tailwind through Vite instead of the browser build and keep this file as app.css.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --font-display: "Barlow Condensed";
+  --font-sans: "Inter";
+  --font-mono: "JetBrains Mono";
+  --brand-black: #101010;
+  --brand-red: #e3262e;
+  --brand-white: #ffffff;
+  --brand-offwhite: #f4f3f0;
+  --border-light: #dcdad4;
+  --border-dark: #252525;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--brand-offwhite);
+  color: var(--brand-black);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #e3262e;
+  color: #fff;
+}
+
+.font-display {
+  font-family: var(--font-display), "Arial Narrow", Impact, sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.font-mono-spec {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Accessible keyboard focus treatment */
+:focus-visible {
+  outline: 2px solid #e3262e;
+  outline-offset: 2px;
+}
+
+/* Custom thin architectural scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e3262e;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ---- Shared storefront components (Laravel views) ---- */
+.input { width: 100%; height: 3rem; padding: 0 1rem; background: #fff; border: 1px solid #101010; font-size: .875rem; }
+textarea.input { height: auto; padding: .75rem 1rem; }
+.label { display: block; font-family: var(--font-mono), monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: #525252; margin-bottom: .375rem; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .5rem; height: 3rem; padding: 0 1.75rem; font-family: var(--font-display), sans-serif; font-size: 1.125rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; transition: background-color .15s, color .15s; cursor: pointer; }
+.btn-red { background: #e3262e; color: #fff; }
+.btn-red:hover { background: #101010; }
+.btn-dark { background: #101010; color: #fff; }
+.btn-dark:hover { background: #e3262e; }
+.btn-outline { border: 1px solid #101010; background: #fff; color: #101010; }
+.btn-outline:hover { background: #101010; color: #fff; }
+.field-error { color: #e3262e; font-size: .75rem; margin-top: .25rem; }
+.chip { display: inline-flex; align-items: center; padding: .5rem .875rem; border: 1px solid #dcdad4; background: #fff; font-family: var(--font-mono), monospace; font-size: .75rem; text-transform: uppercase; cursor: pointer; }
+.chip:hover { border-color: #101010; }
+.chip.is-active, input:checked + .chip { background: #101010; color: #fff; border-color: #101010; }
+.chip.is-disabled { opacity: .35; text-decoration: line-through; cursor: not-allowed; }
+.facet-title { font-family: var(--font-display), sans-serif; font-weight: 800; text-transform: uppercase; font-size: 1.125rem; letter-spacing: .03em; }
+
+/* ---- Homepage ---- */
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.marquee-track { display: flex; width: max-content; animation: marquee 28s linear infinite; }
+.marquee:hover .marquee-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+.snap-row { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; scrollbar-width: thin; }
+.snap-row > * { scroll-snap-align: start; flex: 0 0 min(78%, 300px); }
+details.faq summary { list-style: none; cursor: pointer; }
+details.faq summary::-webkit-details-marker { display: none; }
+details.faq[open] .faq-icon { transform: rotate(45deg); }

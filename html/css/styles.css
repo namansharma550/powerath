@@ -1,0 +1,72 @@
+/*
+ * AXIOM storefront styles.
+ * Utility classes come from Tailwind (see the <script> in index.html).
+ * In Laravel, compile Tailwind through Vite instead of the browser build and keep this file as app.css.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --font-display: "Barlow Condensed";
+  --font-sans: "Inter";
+  --font-mono: "JetBrains Mono";
+  --brand-black: #101010;
+  --brand-red: #e3262e;
+  --brand-white: #ffffff;
+  --brand-offwhite: #f4f3f0;
+  --border-light: #dcdad4;
+  --border-dark: #252525;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--brand-offwhite);
+  color: var(--brand-black);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #e3262e;
+  color: #fff;
+}
+
+.font-display {
+  font-family: var(--font-display), "Arial Narrow", Impact, sans-serif;
+  letter-spacing: -0.015em;
+}
+
+.font-mono-spec {
+  font-family: var(--font-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Accessible keyboard focus treatment */
+:focus-visible {
+  outline: 2px solid #e3262e;
+  outline-offset: 2px;
+}
+
+/* Custom thin architectural scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #101010;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3a3a3a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e3262e;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
